@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+    <move element="navigation.sections" destination="header.container" />
+    <referenceBlock name="footer_links" remove="true" />
+    <referenceBlock name="report.bugs" remove="true" />
+    <referenceBlock name="form.subscribe" remove="true" />
+  	<referenceContainer name="footer">
+     <block class="Magento\Cms\Block\Block" name="test">
+        <arguments>
+            <argument name="block_id" xsi:type="string">footer-content</argument>
+        </arguments>
+    </block>
+	</referenceContainer>
+	<referenceContainer name="footer-container">
+	<block class="Magento\Theme\Block\Html\Footer" name="copyright" template="html/copyright.phtml"/>
+	</referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,46 @@
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<form class="form form-shipping-address" id="co-shipping-form" data-bind="attr: {'data-hasrequired': $t('* Required Fields')}">
+    <!-- ko foreach: getRegion('before-fields') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <!--/ko-->
+    <div id="shipping-new-address-form" class="fieldset address">
+        <!-- ko foreach: getRegion('additional-fieldsets') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+        <!-- ko if: (isCustomerLoggedIn) -->
+        <div class="field choice" data-bind="visible: !isFormInline">
+            <input type="checkbox" class="checkbox" id="shipping-save-in-address-book" data-bind="checked: saveInAddressBook" />
+            <label class="label" for="shipping-save-in-address-book">
+                <span data-bind="i18n: 'Save in address book'"></span>
+            </label>
+        </div>
+        <!-- /ko -->
+    </div>
+    <div class="field _required dental-licence" data-bind="visible: visible, attr: {'name': element.dataScope}, css: additionalClasses">
+
+		    <label class="label dental-license-label" data-bind="attr: { for: element.uid }" for="Dental License Number">
+		       
+		        <span data-bind="text: element.label">Dental License Number</span>
+		        
+		    </label>
+		    <div class="control _with-tooltip" data-bind="css: {'_with-tooltip': element.tooltip}">
+					<input class="input-text" type="text" data-bind="
+					    value: value,
+					    valueUpdate: 'keyup',
+					    hasFocus: focused,
+					    attr: {
+					        name: inputName,
+					        placeholder: placeholder,
+					        'aria-describedby': noticeId,
+					        id: uid,
+					        disabled: disabled
+					    }" name="telephone" placeholder="" aria-describedby="notice-Dental License Number" id="dental-license-number">
+			</div>
+			
+    	</div>
+</form>
